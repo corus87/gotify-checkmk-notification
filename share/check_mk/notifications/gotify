@@ -103,7 +103,7 @@ def send_gotify_message(url, token, text, prio, title):
         return 1  # Temporary error to make Checkmk retry
 
     sys.stdout.write(
-            "Sent message to Gotify: {}\n".format(text)
+            "Sent message to Gotify: {}\n".format(text.encode('utf-8', errors="replace")) # errors="replace" prevents UnicodeEncodeError caused by the emojis
     )
     return 0
 
